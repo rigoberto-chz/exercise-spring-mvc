@@ -27,7 +27,7 @@
 	                            	<div class="col-lg-12 mb-4">
                                     	<div class="card bg-danger text-white shadow">
                                         	<div class="card-body text-center">
-                                        		${message}
+                                        		${error}
                                         	</div>
                                     	</div>
                                 	</div>
