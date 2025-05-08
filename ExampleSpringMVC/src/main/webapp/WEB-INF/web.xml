@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+  <display-name>ExampleSpringMVC</display-name>
+  
+  
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>
+	  /WEB-INF/spring-context.xml,
+	  /WEB-INF/spring-datasource.xml
+	</param-value>
+  </context-param>
+  
+  <!-- Add Spring MVC DispatcherServlet as front controller -->
+  <servlet>
+    <servlet-name>spring-context</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+	  <param-name>contextConfigLocation</param-name>
+	  <param-value></param-value>
+	</init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>spring-context</servlet-name>
+    <url-pattern>/</url-pattern> 
+  </servlet-mapping>
+    
+  <error-page>
+    <!-- Unauthorized -->
+    <error-code>401</error-code>
+    <location>/WEB-INF/views/401.jsp</location>
+  </error-page>
+  <error-page>
+    <!-- Forbidden directory listing -->
+    <error-code>403</error-code>
+    <location>/WEB-INF/views/403.jsp</location>
+  </error-page>
+  <error-page>
+    <!-- Missing resource -->
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/4014.jsp</location>
+  </error-page>
+  <error-page>
+    <!-- Method Not Allowed -->
+    <error-code>405</error-code>
+    <location>/WEB-INF/views/405.jsp</location>
+  </error-page>
+  <error-page>
+    <!-- Uncaught exception -->
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/500.jsp</location>
+  </error-page>
+  <error-page>
+    <!-- Unsupported servlet method -->
+    <error-code>503</error-code>
+    <location>/WEB-INF/views/503.jsp</location>
+  </error-page>
+  
+</web-app>

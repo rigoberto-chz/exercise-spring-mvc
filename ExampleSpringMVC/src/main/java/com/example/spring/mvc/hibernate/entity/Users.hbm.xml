@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 03/29/2025 5:57:28 p. m. by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.example.spring.mvc.hibernate.entity.Users" optimistic-lock="none" table="users">
+        <id name="idUser" type="int">
+            <column name="ID_USER"/>
+            <generator class="increment"/>
+        </id>
+        <property name="email" type="string">
+            <column length="100" name="EMAIL" not-null="true"/>
+        </property>
+        <property name="firstName" type="string">
+            <column length="50" name="FIRST_NAME" not-null="true"/>
+        </property>
+        <property name="lastName" type="string">
+            <column length="50" name="LAST_NAME" not-null="true"/>
+        </property>
+        <set cascade="delete" fetch="select" inverse="true" lazy="true" name="accesses" table="access">
+            <key>
+                <column name="ID_USER" not-null="true"/>
+            </key>
+            <one-to-many class="com.example.spring.mvc.hibernate.entity.Access"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 03/29/2025 5:57:28 p. m. by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.example.spring.mvc.hibernate.entity.Access" optimistic-lock="none" table="access">
+        <id name="idAccess" type="int">
+            <column name="ID_ACCESS"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="com.example.spring.mvc.hibernate.entity.Users" fetch="select" name="users">
+            <column name="ID_USER" not-null="true"/>
+        </many-to-one>
+        <property name="password" type="string">
+            <column length="100" name="PASSWORD" not-null="true"/>
+        </property>
+        <property name="oldPassword" type="string">
+            <column length="100" name="OLD_PASSWORD" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>
