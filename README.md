@@ -1,5 +1,6 @@
 # exercise-spring-mvc
 
++ Java
 + Spring MVC
 + RESTful API
 + Apache Log4j 2
